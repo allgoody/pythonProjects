@@ -9,7 +9,6 @@ try:
     istr = int(astr)    # traceback here
 except:
     istr = -1
-
 print('first', istr)
 
 astr = input('input something again:')
