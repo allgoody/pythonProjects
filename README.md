@@ -1,2 +1,2 @@
 # pythonProjects
-# thats for learning some code snippets etc.
+# all python goes in here
