@@ -1,3 +1,4 @@
+# while True
 # loops 
 # while - indefinite loops
 # for - definite loops
