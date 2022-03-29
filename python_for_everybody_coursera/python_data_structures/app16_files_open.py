@@ -1,3 +1,4 @@
+# open() does NOT opens file in memory it opens 'portal' to it
 # open() function returns a file handle - a variable used to perform operation on the file
 # handle = open(filename,mode) eg: fhand = open('mbox.txt','r')
 # filename is a string
