@@ -13,5 +13,3 @@ for line in fh :
     count = count + 1
     words = line.split() # split based on spaces
     print(words[1]) #<--prints email from each line
-
-print("There were", count, "lines in the file with From as the first word")
