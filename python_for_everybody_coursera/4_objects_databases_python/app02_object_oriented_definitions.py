@@ -12,3 +12,17 @@
 # Instance is an actual object created in runtime.
 # State of an object - the set of its values and attributes
 # The Object consists of state and behavior thats defined by its class
+
+#============================
+
+# Class -  a template
+
+# Attribute - a variable within a class
+
+# Method - a function within a class
+
+# Object - a particular instance of a class
+
+# Constructor - code that runs when an object is created
+
+# Inheritance - ability to extend a class to make a new class
