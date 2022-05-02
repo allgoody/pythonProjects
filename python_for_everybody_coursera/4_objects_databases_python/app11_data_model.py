@@ -1,3 +1,5 @@
+# JOIN operation links across several tables as part of SELECT
+
 # Don't put same string data in twice - use relationship instead
 
 # Primary key - particular row / unique number
@@ -17,6 +19,11 @@
 # 	id    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
 #     artist_id INTEGER,
 # 	title  TEXT
+# )
+
+# CREATE TABLE Genre(
+# 	id    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+# 	name  TEXT
 # )
 
 
@@ -42,3 +49,24 @@
 # insert into Track (title,rating,len,count,album_id,genre_id) values ('About to Rock',5,313,0,1,2);
 # insert into Track (title,rating,len,count,album_id,genre_id) values ('Who Made Who',5,207,0,1,2)
 
+# eg of join:
+#
+# SELECT Album.title,Artist.name FROM Album JOIN Artist ON Album.artist_id = Artist.id
+
+# JOIN ON
+# SELECT Album.title, Album.artist_id,Artist.id,Artist.name FROM Album JOIN Artist ON Album.artist_id = Artist.id
+# WHERE
+# SELECT Album.title, Album.artist_id,Artist.id,Artist.name FROM Album, Artist WHERE Album.artist_id = Artist.id
+
+# SELECT Track.title, Genre.name FROM Track JOIN Genre ON Track.genre_id = Genre.id
+
+# SELECT Track.title, Artist.name,Album.title,Genre.name
+#  FROM
+#  Track
+#  JOIN Genre
+#  JOIN Album
+#  JOIN Artist
+#  ON
+#  Track.genre_id = Genre.id
+#  AND Track.album_id = Album.id
+#  AND Album.artist_id = Artist.id
