@@ -25,3 +25,7 @@ for entry in singleRow:
     
     if payout > 0:
         print(f'tracking code: {trackCode}| pay: {payout}')
+        
+totals = json_data['stats'][0]['totals']
+
+print(f'Total registrations: {totals["Free Registrations"]}| Total spent: {totals["Total Money Spent"]}| Payout: {totals["Payout"]} ')
