@@ -9,10 +9,8 @@ str_data = open(fname).read()
 json_data = json.loads(str_data)
 
 singleRow = json_data['stats'][0]['rows']
-# print(singleRow)
 for entry in singleRow:
     trackCode = entry[0]
-    # print(trackCode)
     rawHits = entry[1]
     uniqueHits = entry[2]
     freeReg = entry[3]
@@ -20,12 +18,9 @@ for entry in singleRow:
     totalSpent = entry[5]
     payout = entry[6]
     
-    if freeReg > 0:
+    if freeReg > 0 or payout > 0:
         print(f'tracking code: {trackCode}| free registrations: {freeReg}| pay: {payout}')
-    
-    if payout > 0:
-        print(f'tracking code: {trackCode}| pay: {payout}')
         
 totals = json_data['stats'][0]['totals']
 
-print(f'Total registrations: {totals["Free Registrations"]}| Total spent: {totals["Total Money Spent"]}| Payout: {totals["Payout"]} ')
+print(f'Total registrations: {totals["Free Registrations"]}| Total spent: {totals["Total Money Spent"]}| Total payout: {totals["Payout"]} ')
