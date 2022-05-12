@@ -69,7 +69,7 @@ for line in fh:
         print(data) # in case unicode causes and error
         continue
     
-    if 'status' not in js or (js['ststus'] != 'OK' and js['status'] != 'ZERO RESULTS'):
+    if 'status' not in js or (js['status'] != 'OK' and js['status'] != 'ZERO RESULTS'):
         print('===Failure to retrieve===')
         print(data)
         break
