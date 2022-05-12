@@ -8,33 +8,32 @@ conn = sqlite3.connect('./test_data/geodata.sqlite')
 cur = conn.cursor()
 
 cur.execute('SELECT * FROM Locations')
-fhand = codecs.open('where.js', 'w', "utf-8")
+fhand = codecs.open('./test_data/where.js', 'w', "utf-8")
 fhand.write("myData = [\n")
 count = 0
-for row in cur:
+for row in cur :
     data = str(row[1].decode())
-    try: js = js.loads(str(data))
+    name = str(row[0].decode())
+    try: js = json.loads(str(data))
     except: continue
-    
-    if not ('status' in js and js['statys'] == 'OK'): continue
-    
+
+    if not('status' in js and js['status'] == 'OK') : continue
+
     lat = js["results"][0]["geometry"]["location"]["lat"]
     lng = js["results"][0]["geometry"]["location"]["lng"]
-    
-    if lat == 0 or lng == 0: continue
+    if lat == 0 or lng == 0 : continue
     where = js['results'][0]['formatted_address']
     where = where.replace("'", "")
-    try:
-        print(where, lat, lng)
-        
+    try :
+        print(name, where, lat, lng)
+
         count = count + 1
-        if count > 1:
-            fhand.write(",\n")
-        output = "["+str(lat)+", "+str(lng)+", '"+where+"']"
+        if count > 1 : fhand.write(",\n")
+        output = "["+str(lat)+","+str(lng)+", '"+where+"', '"+name+"']"
         fhand.write(output)
     except:
         continue
-    
+
 fhand.write("\n];\n")
 cur.close()
 fhand.close()
