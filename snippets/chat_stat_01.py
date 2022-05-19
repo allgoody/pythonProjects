@@ -3,7 +3,7 @@ import json
 
 fname = input('Enter file name:')
 if len(fname) < 1:
-    fname = './test_data/chat06052022.json'
+    fname = './test_data/chat010522-150522.json'
     
 str_data = open(fname).read()
 json_data = json.loads(str_data)
